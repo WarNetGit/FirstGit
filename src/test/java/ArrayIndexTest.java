@@ -33,7 +33,7 @@ public class ArrayIndexTest {
     }
 
     @Test
-    public void negativeSiz() {
+    public void negativeSize() {
        Throwable thrown = Assertions.assertThrows(NegativeArraySizeException.class,
                () -> new IndexStorage(-5));
         Assertions.assertNotNull(thrown.getMessage());
