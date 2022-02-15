@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class ArrayIndexTest {
     @Test
     public void testReverseArray() {
@@ -33,14 +34,9 @@ public class ArrayIndexTest {
 
     @Test
     public void negativeSiz() {
-        IndexStorage indexStorageTest=new IndexStorage(0);
-        try {
-            indexStorageTest = new IndexStorage(-5);
-        } catch (Exception e) {
-            System.out.println("Ошибка indexStorage:" + e.getMessage());
-        }
-        int expected = 0;
-        int actual = indexStorageTest.size();
-        Assertions.assertEquals(expected, actual);
+       Throwable thrown = Assertions.assertThrows(NegativeArraySizeException.class,
+               () -> new IndexStorage(-5));
+        Assertions.assertNotNull(thrown.getMessage());
+
     }
 }
